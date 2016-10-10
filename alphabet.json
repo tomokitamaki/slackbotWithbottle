@@ -1,0 +1,34 @@
+{
+    "A": {
+        "mean":"Angel",
+        "look":"samisii"
+    },
+    "B": {
+        "mean":"Beautifule",
+        "look":"samisii"
+    },
+    "C": {
+        "mean":"Cute",
+        "look":"normal"
+    },
+    "D": {
+        "mean":"Delicious",
+        "look":"yes!"
+    },
+    "E": {
+        "mean":"excellent",
+        "look":"yes!yes!"
+    },
+    "F": {
+        "mean":"Fantastic",
+        "look":"good!"
+    },
+    "G": {
+        "mean":"Greate",
+        "look":"gooood!"
+    },
+    "H": {
+        "mean":"Hallelujah",
+        "look":"Hallelujah!Hallelujah!Hallelujah!"
+    }
+}

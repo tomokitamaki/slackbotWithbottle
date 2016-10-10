@@ -1,5 +1,6 @@
 from bottle import route, run, template, get, HTTPResponse
 import json
+
 @route('/hello')
 def hello():
   return "Hello World!"
@@ -32,12 +33,10 @@ def returnMemory(sc):
         return "none"
 @get('/plz/AH/<alpha:re:[A|B|C|D|E|F|G|H]+>')
 def returnMean(alpha):
-    if alpha == 'A':
-        body = json.dumps({'A':{'mean':'angel','look':'samisii'}})
-    elif alpha == 'B':
-        body = json.dumps({'B':{'mean':'beautiful','look':'samisii'}})
-    else:
-        body = 'none'
+    fileobj = open('alphabet.json', 'r')
+    data = json.load(fileobj)
+    fileobj.close()
+    body = data[alpha]
     r = HTTPResponse(status=200, body=body)
     r.set_header('Content-Type', 'application/json')
     return r
