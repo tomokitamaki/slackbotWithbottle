@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
- 
-API_TOKEN = ""
+import APITOKEN 
+
+API_TOKEN = APITOKEN.APIAPI
 PLUGINS = [
     'plugins',
 ]
