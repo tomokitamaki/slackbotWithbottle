@@ -12,6 +12,14 @@ http://qiita.com/txt_only/items/90e019479b62a7ee4ad1
 - slackbot_settings.py
 - pluginsフォルダ
 
+### slackbot_setings.pyに記載するAPIキーについて
+`API_TOKEN = APITOKEN.APIAPI`としています。  
+直接APIキーを書いてしまうとgitHubに挙げられなくなるのでこのようにしました。  
+別途、APITOKEN.pyというファイルがあり、そのファイルには以下のように書かれています。  
+`APIAPI = "APIトークン"`  
+なので、行頭のimortでファイルを読み込み、そこからAPIAPIの変数の値を読み出し、  
+API_TOKEN という変数に格納しています。  
+
 ## 以下はbottle用のファイルです。
 - hello_world.py
 
