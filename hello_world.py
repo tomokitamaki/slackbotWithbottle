@@ -36,7 +36,8 @@ def returnMean(alpha):
     fileobj = open('alphabet.json', 'r')
     data = json.load(fileobj)
     fileobj.close()
-    body = data[alpha]
+    
+    body = json.dumps(data[alpha],sort_keys = True,indent = 4)
     r = HTTPResponse(status=200, body=body)
     r.set_header('Content-Type', 'application/json')
     return r
