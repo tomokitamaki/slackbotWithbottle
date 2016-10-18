@@ -11,7 +11,7 @@ def cheer(message, something):
 @respond_to('つかれた')
 def cheer(message):
     message.reply('ふぁいと')
-@respond_to('I love ([A|B|C|D|E|F|G|H])')
+@respond_to('I love ([A|B|C|D|E|F|G|H]$)')
 def cheer(message, something):
     r = requests.get('http://172.17.0.3/plz/AH/{}'.format(something))
     message.reply(r.text)
