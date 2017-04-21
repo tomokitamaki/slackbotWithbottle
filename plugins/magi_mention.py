@@ -8,6 +8,9 @@ def cheer(message, something):
         message.reply('Dont say {}'.format(something))
     else:
         message.reply('there are not {}'.format(something))
+@respond_to('シュガートースト')
+def cheer(message):
+    message.reply('くだらないこというな')
 @respond_to('つかれた')
 def cheer(message):
     message.reply('ふぁいと')
@@ -15,6 +18,3 @@ def cheer(message):
 def cheer(message, something):
     r = requests.get('http://172.17.0.3/plz/AH/{}'.format(something))
     message.reply(r.text)
-@respond_to('シュガートースト')
-def cheer(message, something):
-    message.reply('くだらないこと言うな')
