@@ -1,5 +1,6 @@
 from bottle import route, run, template, get, HTTPResponse
 import json
+import requests
 
 @route('/hello')
 def hello():
@@ -36,12 +37,16 @@ def returnMean(alpha):
     fileobj = open('alphabet.json', 'r')
     data = json.load(fileobj)
     fileobj.close()
-    
+
     body = json.dumps(data[alpha],sort_keys = True,indent = 4)
     r = HTTPResponse(status=200, body=body)
     r.set_header('Content-Type', 'application/json')
     return r
+@get('/plz/tenki/<tenki>')
+def returnTenki(tenki):
+    tenki = requests.get('http://weather.livedoor.com/forecast/webservice/json/v1?city=016010').json()
+    ashitano_tenki = json.dumps(tenki['forecasts'][1]['telop'], ensure_ascii=False, indent=4,  separators=(',', ': '))
+    return '明日の天気は({ashitano_tenki})'.format(ashitano_tenki=ashitano_tenki)
+
 
 run(host='0.0.0.0', port=80, debug=True, reloader=True)
-
-
