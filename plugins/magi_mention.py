@@ -9,8 +9,8 @@ def cheer(message, something):
     else:
         message.reply('there are not {}'.format(something))
 @respond_to('tenki')
-def cheer(message, something):
-    r = requests.get('http://172.17.0.3/plz/tenki/{}'.format(something))
+def cheer(message):
+    r = requests.get('http://172.17.0.3/plz/tenki/{}'.format(message))
     message.reply(r.text)
 @respond_to('シュガートースト')
 def cheer(message):
