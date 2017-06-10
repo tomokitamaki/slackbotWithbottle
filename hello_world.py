@@ -34,7 +34,7 @@ def returnMemory(sc):
         return "none"
 @get('/plz/AH/<alpha:re:[A|B|C|D|E|F|G|H]+>')
 def returnMean(alpha):
-    fileobj = open('alphabet.json', 'r')
+    fileobj = open('/root/slackbotWithbottle/alphabet.json', 'r')
     data = json.load(fileobj)
     fileobj.close()
 
