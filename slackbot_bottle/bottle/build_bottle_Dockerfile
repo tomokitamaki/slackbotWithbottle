@@ -1,0 +1,22 @@
+# bottleが動くコンテナを作るためのDockerfile
+FROM centos:7.3.1611
+
+# ワーキングディレクトリを指定すべて/root/で実行されるようにする。
+WORKDIR /root
+
+# gitとiusリポジトリのインストール
+RUN yum update -y && yum upgrade && \
+yum install -y git https://centos7.iuscommunity.org/ius-release.rpm
+
+# python3.5のインストール
+RUN yum install -y python35u python35u-libs python35u-devel python35u-pip
+
+# 必要なシェルスクリプトをローカルからコピーする
+COPY BuildBottle.sh /root/
+
+# 通信に必要なポートをホストOSのポートとマッピング。
+EXPOSE 80
+
+# slackbotのインストールとセットアップと起動のスクリプト
+CMD ["/root/BuildBottle.sh"]
+
